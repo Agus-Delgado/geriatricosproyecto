@@ -1,0 +1,71 @@
+@page {
+  margin: 16mm;
+}
+html, body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.print-bg {
+  background: var(--bg-light, #f9fafb);
+  min-height: 100vh;
+  padding: 24px 0;
+}
+.content {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+}
+.content h1, .content h2, .content h3 {
+  letter-spacing: 0.2px;
+}
+.section-title {
+  border-bottom: 2px solid var(--primary-color, #2563eb);
+  color: var(--primary-color, #2563eb);
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+  padding-bottom: 4px;
+}
+.info-row {
+  display: flex;
+  margin-bottom: 10px;
+}
+.info-label {
+  width: 180px;
+  font-weight: bold;
+  color: var(--text-dark, #111827);
+}
+.info-value {
+  flex: 1;
+  color: #111827;
+}
+.textarea {
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  min-height: 60px;
+  border-radius: 6px;
+  background: #f9fafb;
+}
+.signature-line {
+  margin-top: 50px;
+  text-align: right;
+  color: #6b7280;
+  font-size: 13px;
+}
+.signature-line::before {
+  content: "";
+  display: inline-block;
+  width: 200px;
+  border-top: 1px dotted #6b7280;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+@media print {
+  .no-print { display: none !important; }
+  .print-bg { background: #fff !important; padding: 0 !important; }
+  .content { box-shadow: none !important; border-radius: 0 !important; }
+}

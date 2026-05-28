@@ -1,0 +1,481 @@
+@page {
+  margin: 16mm;
+}
+:root {
+  --primary-color: var(--facility-accent, #2563eb);
+}
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: white;
+  color: #111827;
+  margin: 0;
+  padding: 0;
+}
+.print-bg {
+  background: #f9fafb;
+  min-height: 100vh;
+}
+.content {
+  max-width: 750px;
+  margin: auto;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #0001;
+}
+.section {
+  margin-bottom: 30px;
+}
+.section-title {
+  font-size: 18px;
+  border-bottom: 2px solid var(--primary-color, #2563eb);
+  color: var(--text-dark, #1e40af);
+  margin-bottom: 15px;
+  padding-bottom: 4px;
+}
+.info-row {
+  display: flex;
+  margin-bottom: 10px;
+}
+.info-label {
+  width: 180px;
+  font-weight: bold;
+}
+.info-value {
+  flex: 1;
+}
+.textarea {
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  min-height: 60px;
+  border-radius: 6px;
+  background: var(--bg-light, #f9fafb);
+}
+.signature-line {
+  margin-top: 50px;
+  text-align: right;
+  color: #6b7280;
+  font-size: 13px;
+}
+.signature-line::before {
+  content: "";
+  display: inline-block;
+  width: 200px;
+  border-top: 1px dotted #6b7280;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+@media print {
+  .no-print,
+  nav,
+  .appHeader,
+  footer,
+  .appShell {
+    display: none !important;
+  }
+  .print-bg {
+    background: #fff !important;
+  }
+  /* .content: NO global reset, se maneja en resident-print.css para la ficha */
+}
+/* Paper Frame - Estilo Rx */
+.paper {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20mm 15mm;
+  box-sizing: border-box;
+}
+
+/* Header con Grid - 3 columnas */
+.paper-header-grid {
+  display: grid;
+  grid-template-columns: 24mm 1fr 45mm;
+  gap: 8mm;
+  margin-bottom: 20mm;
+  align-items: start;
+}
+
+/* Columna 1: Rx */
+.paper-rx-mark {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.rx-text {
+  font-size: 48pt;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  font-family: Arial, sans-serif;
+}
+
+/* Columna 2: Paciente/Domicilio */
+.paper-patient-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8mm;
+}
+
+.paper-line-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4mm;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2mm;
+  min-height: 6mm;
+}
+
+.paper-line-label {
+  font-weight: 600;
+  font-size: 11pt;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+.paper-line-field {
+  flex: 1;
+  min-height: 4mm;
+  display: flex;
+  align-items: baseline;
+}
+
+.paper-line-value {
+  font-size: 11pt;
+  color: #000;
+}
+
+/* Columna 3: Fecha en box */
+.paper-date-box {
+  border: none;
+  background: transparent;
+  padding: 0;
+  text-align: center;
+  font-size: 11pt;
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  margin-top: 2mm;
+  align-self: start;
+}
+
+.paper-date-label {
+  font-weight: 600;
+  font-size: 10pt;
+}
+
+.paper-date-value {
+  color: #000;
+  font-size: 11pt;
+}
+
+/* Área de contenido */
+.paper-content {
+  max-width: 170mm;
+  margin: 0 auto;
+  font-size: 12pt;
+  line-height: 1.5;
+  color: #111;
+  min-height: 150mm;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 10.5pt;
+  color: #111827;
+  padding: 8px 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+  font-size: 10.5pt;
+  color: #111827;
+  padding: 8px 8px;
+  vertical-align: top;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* Base - Print Root */
+.print-root {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #111;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Título centrado */
+.print-title {
+  font-size: 20pt;
+  font-weight: 700;
+  text-align: center;
+  margin: 12mm 0 8mm 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.print-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 10.5pt;
+  color: #374151;
+  margin: -2mm 0 6mm 0;
+}
+
+.print-meta strong {
+  color: #111827;
+}
+
+.print-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 6mm 0;
+}
+
+.print-section-title {
+  font-size: 12pt;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--primary-color, #2563eb);
+  color: var(--text-dark, #111827);
+}
+
+.print-kv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 18px;
+}
+
+.print-kv {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.print-kv-label {
+  font-weight: 700;
+  color: #111827;
+}
+
+.print-kv-value {
+  color: #111827;
+}
+
+.print-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff;
+}
+
+.print-entry {
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.print-entry:last-child {
+  border-bottom: none;
+}
+
+.print-entry-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 10.5pt;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.print-entry-body {
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: #111827;
+  white-space: pre-wrap;
+}
+
+/* Cuerpo del documento */
+.print-body {
+  font-size: 12pt;
+  line-height: 1.5;
+  margin-bottom: 25mm;
+  flex: 1;
+}
+
+.print-paragraph {
+  margin: 0 0 8px 0;
+  white-space: pre-wrap;
+}
+
+/* Footer: Todo abajo a la derecha */
+.print-footer-right {
+  margin-top: auto;
+  text-align: right;
+  font-size: 11pt;
+  padding-top: 10mm;
+}
+
+.print-signature-section {
+  display: inline-block;
+  text-align: right;
+  margin-bottom: 6mm;
+}
+
+.print-signature-label {
+  font-weight: 600;
+  margin-bottom: 2mm;
+}
+
+.print-signature-line {
+  width: 70mm;
+  height: 0;
+  border-bottom: 1px solid #000;
+  margin-bottom: 4mm;
+  margin-left: auto;
+}
+
+.print-doctor-name {
+  font-weight: 600;
+  margin-bottom: 2mm;
+}
+
+.print-doctor-license {
+  font-size: 10pt;
+  color: #333;
+}
+
+.print-facility-address {
+  font-size: 10pt;
+  color: #555;
+  margin-top: 4mm;
+}
+
+/* Bloques de firma para Consentimiento */
+.print-signature-block {
+  margin-top: 12mm;
+  margin-bottom: 12mm;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.print-signature-label-block {
+  margin-bottom: 0;
+}
+
+.print-signature-title {
+  font-weight: 600;
+  font-size: 11pt;
+  margin-bottom: 4mm;
+  color: #111827;
+}
+
+.print-signature-space {
+  height: 60px;
+  min-height: 60px;
+  margin-bottom: 2mm;
+}
+
+.print-signature-line-block {
+  width: 320px;
+  max-width: 320px;
+  height: 0;
+  border-bottom: 1px solid #000;
+  margin-bottom: 4mm;
+}
+
+.print-signature-info {
+  font-size: 10.5pt;
+  color: #111827;
+  margin: 2px 0;
+  line-height: 1.4;
+}
+
+/* Preview Stage - Para vista previa */
+.previewStage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background: #f5f5f5;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.previewScale {
+  transform-origin: top center;
+  transition: transform 0.2s;
+}
+
+@media (max-width: 800px) {
+  .previewScale {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 600px) {
+  .previewScale {
+    transform: scale(0.5);
+  }
+}
+
+/* Control de impresión */
+.no-print { display: block; }
+
+@media print {
+  .no-print,
+  nav,
+  header,
+  footer,
+  .appShell {
+    display: none !important;
+  }
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+  body {
+    background: #fff;
+  }
+  .a4-page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+    border-radius: 0 !important;
+  }
+  
+  /* Espacios de firma para Consentimiento en impresión */
+  .print-signature-block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-top: 10mm;
+    margin-bottom: 10mm;
+  }
+  
+  .print-signature-space {
+    height: 65px;
+    min-height: 65px;
+  }
+  
+  .print-signature-line-block {
+    width: 360px;
+    max-width: 360px;
+  }
+}

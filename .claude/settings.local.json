@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: Implementar funcionalidades completas para Owners\n\n✨ Nuevas Funcionalidades:\n- Gestión de Personal: CRUD completo de empleados con campos extendidos\n- Gestión de Turnos: Configuración de horarios \\(mañana/tarde/noche\\)\n- Asignación de Turnos: Calendario semanal interactivo\n- Dashboard \"Quién está trabajando\": Vista en tiempo real con auto-refresh\n- Dashboard del Owner: KPIs y accesos rápidos\n\n🗄️ Backend:\n- Nuevos modelos: Shift, ShiftAssignment\n- Modelo Staff extendido con CUIL, especialidad, matrícula\n- API completa: 15 endpoints para shifts y asignaciones\n- Servicio shift_service.py con lógica de dashboard en tiempo real\n- Migración 015: Nuevas tablas y campos\n\n🎨 Frontend:\n- 5 páginas nuevas completas con formularios y UI\n- Types y API clients para staff/shifts\n- Auto-refresh cada 30 segundos en dashboard de personal\n\n📝 Mejoras:\n- Estados de residentes más discretos \\(ACTIVE/INACTIVE\\)\n- Documentación completa en OWNER_FEATURES_README.md\n\n🔐 Permisos:\n- Funcionalidades exclusivas para rol ADMIN/OWNER\n\n🤖 Generated with Claude Code\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git checkout:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
